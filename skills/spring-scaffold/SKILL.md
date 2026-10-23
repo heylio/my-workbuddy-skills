@@ -117,8 +117,7 @@ container, wired up in Step 4b.
 Every Testcontainers module carries a `testcontainers-` prefix since 2.0. The old unprefixed
 coordinates still resolve — they just stop at 1.21.4 forever, which is how a project ends up silently
 a major version behind. Boot 4.1's BOM pins Testcontainers **2.0.5**; never override
-`testcontainers.version` by hand. The `spring-testing` skill's `SKILL_DIR/../spring-testing/references/containers.md` holds the
-full 1.x → 2.x coordinate map and the commands that verify it.
+`testcontainers.version` by hand. Use Testcontainers 2.x coordinates with the `testcontainers-` prefix (for example, `testcontainers-postgresql`, `testcontainers-junit-jupiter`, and `testcontainers-grafana`). Before changing dependencies, inspect the generated `pom.xml` and the resolved dependency tree; keep all Testcontainers modules aligned to the Spring Boot dependency-management version. Do not copy old 1.x coordinates from unrelated examples.
 
 ---
 
@@ -357,24 +356,26 @@ migration to the user.
 The `logging.export.otlp.endpoint` above configures an exporter, but Boot ships **no Logback
 appender** — without it the log endpoint exports nothing while traces and metrics work fine.
 
-Apply **Step 3 (3a–3c) of the `otel-setup` skill** (`SKILL_DIR/../otel-setup/SKILL.md`): the
-version-matched `opentelemetry-logback-appender-1.0` dependency, `logback-spring.xml`, and the
-`InstallOpenTelemetryAppender` bean in `shared/config/`. That skill owns the version-matching rule, so
-the scaffold never carries a second copy of the pin.
+Implement log export directly in this scaffold; do not assume an `otel-setup` sibling skill exists.
 
-Anything past this — resource attributes, vendor auth headers, `@Observed`, production sampling, and
-the runbook that proves all three signals actually land in Grafana — belongs to the **`otel-setup`**
-skill.
+1. Inspect the Spring Boot dependency-management metadata and resolved dependency tree. Add the OpenTelemetry Logback appender whose version is compatible with the OpenTelemetry SDK brought in by the selected Spring Boot line; do not guess or independently pin an unrelated version.
+2. Add `src/main/resources/logback-spring.xml` using the appender's documented configuration and the same OTLP endpoint configured in `application.yml`. Avoid logging secrets or authorization headers.
+3. Add the minimal Spring configuration needed to install the OpenTelemetry appender at startup, using the API supported by the resolved appender version. Keep it in `shared/config/`.
+4. Verify with a local collector or the LGTM stack: emit a test log, confirm it arrives in the collector/Grafana, and inspect startup logs for exporter errors. Do not claim log export works until this check passes.
+
+If version compatibility or appender configuration cannot be verified from the resolved dependencies and their documentation, stop and report the missing evidence instead of generating guessed coordinates or APIs. Resource attributes, vendor authentication, production sampling, and full telemetry runbooks are outside this scaffold's minimum scope.
 
 ---
 
 ## Step 6 — Write Dockerfile and CI
 
-Apply **Steps 2 and 4 of the `devops-scaffold` skill** (`SKILL_DIR/../devops-scaffold/SKILL.md`) with
-`javaVersion` = 25: the multi-stage, non-root Temurin `Dockerfile` and `.github/workflows/ci.yml`
-(test → build, Maven cache, pinned action majors). Run its action-tag check before writing. Skip its
-compose step — `spring-boot:test-run` covers local infrastructure for a fresh scaffold; the user can
-run `devops-scaffold` later when they want a `docker-compose.yml`.
+Create these files directly; do not assume a `devops-scaffold` sibling skill exists.
+
+- `Dockerfile`: use a multi-stage build, build with the project's Maven wrapper, copy only the packaged application into a small Temurin runtime image compatible with the configured Java version, run as a non-root user, and expose only the application port. Do not copy source files, Maven credentials, `.env` files, or secrets into the runtime image.
+- `.github/workflows/ci.yml`: trigger on pull requests and pushes to the repository's primary branch; set minimal permissions; use a supported JDK matching the project's Java version; enable Maven dependency caching; run `./mvnw -B verify`; then build the image only if that is part of the repository's CI requirement. Pin third-party actions to reviewed stable major versions (or immutable SHAs where repository policy requires it), and verify the chosen action references before writing.
+- Add a `.dockerignore` excluding `.git`, build output, local environment files, IDE files, and credentials.
+
+Skip Docker Compose by default because `spring-boot:test-run` covers the local infrastructure for this scaffold. Add Compose only when the user requests a separate local multi-service workflow.
 
 ---
 
@@ -429,7 +430,5 @@ Tell the user:
 - What to do next: add domain logic to feature slices, run `./mvnw test` to verify Testcontainers works
 - That log export depends on the Logback appender wired in Step 5b — traces and metrics work without it,
   logs do not
-- That the **`otel-setup`** skill verifies all three signals actually land in Grafana, and owns
-  resource attributes, vendor auth, and production sampling
-- That the **`spring-testing`** skill takes over from here — it writes the actual tests, adds any
-  container beyond Postgres, and audits the suite against the Boot 4 test API
+- Whether OTLP log export was actually verified; if it was not, state that traces/metrics configuration and log delivery still need validation
+- That generated tests are a starting point: add domain-specific unit and integration tests, and verify the resolved Spring Boot test APIs before expanding the suite
