@@ -1,12 +1,6 @@
 ---
 name: frontend-design-review
-description: >
-  Review and create distinctive, production-grade frontend interfaces with high design quality and design system compliance.
-  Evaluates using three pillars: frictionless insight-to-action, quality craft, and trustworthy building.
-  USE FOR: PR reviews, design reviews, accessibility audits, design system compliance checks, creative frontend design,
-  UI code review, component reviews, responsive design checks, theme testing, and creating memorable UI.
-  DO NOT USE FOR: Backend API reviews, database schema reviews, infrastructure or DevOps work, pure business logic
-  without UI, or non-frontend code.
+description: "用于前端界面和代码的设计评审、PR 审查、无障碍检查、设计系统规范检查、组件审查、响应式布局检查及主题测试；也可用于从零创建有辨识度、达到生产质量的前端界面。不用于后端 API、数据库结构、基础设施、DevOps 或纯业务逻辑审查。"
 acknowledgments: |
   Design review principles and quality pillar framework created by @Quirinevwm (https://github.com/Quirinevwm).
   Creative frontend guidance inspired by Anthropic's frontend-design skill
