@@ -1,26 +1,6 @@
 ---
 name: playwright-e2e-testing
-description: >
-  Production-grade Playwright end-to-end testing skill for AI coding agents.
-  Provides specialized guidance for writing, debugging, and maintaining
-  Playwright tests in TypeScript, JavaScript, and Python. Covers the full testing
-  lifecycle: test structure and architecture (Page Object Model, fixtures, custom
-  matchers), locator strategy best practices (role-based, test-ID, accessible
-  selectors), auto-waiting and retry-ability patterns, API and network mocking,
-  visual regression and screenshot comparison, component testing (React, Vue,
-  Svelte), accessibility audits (axe-core integration), mobile and device
-  emulation, authentication and session management (multi-profile, OAuth, 2FA),
-  performance testing with Web Vitals and Lighthouse integration, CI/CD pipeline
-  configuration (GitHub Actions, GitLab CI, sharding, parallelization), flaky test
-  detection and auto-healing, test data management and fixtures, internationalization
-  (i18n) and localization testing, Electron and browser extension testing,
-  security testing (XSS, CSRF, CSP), and WebSocket/real-time application testing.
-  Primary keyword clusters: Playwright E2E testing, Playwright best practices,
-  browser automation testing, end-to-end test automation, Playwright TypeScript
-  testing, visual regression testing Playwright, Playwright CI/CD configuration,
-  flaky test prevention, Page Object Model Playwright, Playwright component testing.
-  Designed for agentic platforms — Claude Code, Codex, Cursor, Gemini CLI, OpenClaw,
-  GitHub Copilot, Windsurf, OpenCode, and all SKILL.md-compatible agents.
+description: "用于编写、调试和维护 Playwright 自动化测试，覆盖 TypeScript、JavaScript 和 Python。适用于端到端测试、页面对象模式、定位器、自动等待、接口模拟、视觉回归、组件测试、无障碍审查、移动设备模拟、登录会话、性能测试、CI/CD、测试数据管理、国际化、桌面应用及常见 Web 安全测试。"
 version: 1.0.0
 author: Skill Foundry
 source: Adapted and materially improved from currents-dev/playwright-best-practices-skill
