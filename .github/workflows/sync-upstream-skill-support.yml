@@ -1,0 +1,27 @@
+name: Sync upstream skill support files
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Sync upstream support directories
+        run: bash scripts/sync-upstream-skill-support.sh
+      - name: Commit synchronized files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skills
+          if git diff --cached --quiet; then
+            echo "No upstream support-file changes to commit."
+          else
+            git commit -m "Sync upstream skill support files"
+            git push
+          fi
