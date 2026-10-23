@@ -1,6 +1,6 @@
 ---
 name: frontend-ui-prototype
-description: Build a question-driven, browser-testable frontend prototype with a single index.html and locally downloaded raster assets. Use when turning a product idea, existing app, repository, screenshot, or live URL into a landing page or UI prototype before production implementation. Inspect product truth, ask concrete intake questions, research and select a suitable DESIGN.md direction, decide how real screenshots, photography, generated imagery, or illustration should be used, then create index.html, DESIGN.md, a Makefile, and any needed assets, and verify the result at desktop and mobile widths. Do not use for production application architecture, backend work, or pixel-perfect cloning.
+description: "把产品想法、现有应用、代码仓库、截图或网页快速制作成可在浏览器中验证的前端原型。适用于落地页和 UI 方案探索：先了解需求、分析现有产品、确定设计方向，再生成单页 HTML、设计说明及必要素材，并检查桌面端和手机端效果。不用于正式生产应用架构、后端开发或像素级仿制。"
 ---
 
 # Frontend UI Prototype
