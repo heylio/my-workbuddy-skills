@@ -29,7 +29,7 @@ sync_skill() {
     cp -a "$dir" "$target/"
   done < <(find "$source" -mindepth 1 -maxdepth 1 -type d -print0)
   # Preserve useful upstream license/changelog/provenance files where present.
-  for file in LICENSE LICENSE.md CHANGELOG.md CONTRIBUTING.md; do
+  for file in LICENSE LICENSE.md LICENSE.txt README.md README_zh.md CHANGELOG.md CONTRIBUTING.md metadata.json; do
     if [[ -f "$source/$file" ]]; then cp -f "$source/$file" "$target/$file"; fi
   done
   echo "    done"
@@ -41,10 +41,11 @@ sync_skill "microsoft/skills" ".github/skills/frontend-design-review" "skills/fr
 sync_skill "JPeetz/agent-skills" "skills/data/database-schema-designer" "skills/database-schema-designer"
 sync_skill "JPeetz/agent-skills" "skills/documentation-content/spec-writer" "skills/spec-writer"
 sync_skill "Dancan254/spring-boot-skills" "skills/spring-scaffold" "skills/spring-scaffold"
+sync_skill "zander-zyx/java-development-skill" "." "skills/java-development"
 sync_skill "JPeetz/agent-skills" "skills/qa-testing/playwright-e2e-testing" "skills/playwright-e2e-testing"
 sync_skill "JPeetz/agent-skills" "skills/development/anti-over-engineering" "skills/anti-over-engineering"
 sync_skill "JPeetz/agent-skills" "skills/development/safe-refactor" "skills/safe-refactor"
 
 echo
 echo "Sync complete. Review changes, especially license/provenance files, before committing."
-echo "java-development is a local adaptation and was intentionally not overwritten."
+echo "java-development SKILL.md is preserved; upstream support directories are synchronized."
