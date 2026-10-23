@@ -9,7 +9,7 @@
 | frontend-ui-prototype | [SKILL.md](skills/frontend-ui-prototype/SKILL.md) | 快速构建前端 UI 原型 | https://github.com/0furkancolak/frontend-ui-prototype |
 | frontend-design | [SKILL.md](skills/frontend-design/SKILL.md) | 前端界面设计与实现 | https://github.com/anthropics/skills/tree/main/skills/frontend-design |
 | frontend-design-review | [SKILL.md](skills/frontend-design-review/SKILL.md) | 前端设计评审 | https://github.com/microsoft/skills/tree/main/.github/skills/frontend-design-review |
-| Skill Foundry (Forge) | [SKILL.md](skills/database-schema-designer/SKILL.md)（目录名保留） | 数据库 Schema 设计 | https://github.com/JPeetz/agent-skills/tree/main/skills/data/database-schema-designer |
+| database-schema-designer | [SKILL.md](skills/database-schema-designer/SKILL.md) | 数据库 Schema 设计 | https://github.com/JPeetz/agent-skills/tree/main/skills/data/database-schema-designer |
 | spec-writer | [SKILL.md](skills/spec-writer/SKILL.md) | 编写需求与技术规格说明 | https://github.com/JPeetz/agent-skills/tree/main/skills/documentation-content/spec-writer |
 | spring-scaffold | [SKILL.md](skills/spring-scaffold/SKILL.md) | Spring Boot 项目脚手架初始化 | https://github.com/Dancan254/spring-boot-skills/tree/main/skills/spring-scaffold |
 | java-development | [SKILL.md](skills/java-development/SKILL.md) | Java/Spring Boot 后端持续开发、测试与维护（本仓库适配版） | https://github.com/zander-zyx/java-development-skill |
