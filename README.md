@@ -25,4 +25,4 @@
 
 ## 同步说明
 
-上游 Skills 的 `references/`、`scripts/`、`templates/`、`assets/` 等配套文件必须与对应 `SKILL.md` 一并同步；不能只复制主说明文件。运行 `scripts/sync-upstream-skill-support.sh` 可按 README 中记录的来源拉取配套目录，保留本仓库适配后的 `SKILL.md`。`java-development` 为本仓库自包含适配版，不从上游覆盖。请遵循各上游项目的许可证和署名要求。
+上游 Skills 的 `references/`、`scripts/`、`templates/`、`assets/` 等配套文件必须与对应 `SKILL.md` 一并同步；不能只复制主说明文件。可在 GitHub Actions 的 **Sync upstream skill support files** 工作流中点击 **Run workflow** 执行同步；也可在本地运行 `bash scripts/sync-upstream-skill-support.sh`。同步脚本只复制配套目录和许可/变更记录文件，保留本仓库适配后的 `SKILL.md`。`java-development` 为本仓库自包含适配版，不从上游覆盖。请遵循各上游项目的许可证和署名要求。
