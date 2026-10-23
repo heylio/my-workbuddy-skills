@@ -1,16 +1,6 @@
 ---
 name: spec-writer
-description: >
-  Use this skill when a vague feature request, ticket, PRD fragment, or rough idea
-  needs to be turned into a structured specification, technical plan, and ordered
-  task breakdown for AI coding agents. Generates all three output sections
-  immediately, then flags every implicit decision as an inline [ASSUMPTION: ...]
-  marker with an impact rating and correction guidance — no back-and-forth
-  questions needed before drafting. Primary keywords: spec-driven development
-  SDD, feature specification generation, technical planning, task breakdown,
-  assumption flagging, acceptance criteria Given When Then, requirements
-  engineering, feature request refinement, specification writing agent,
-  plan-first development. For all major agentic platforms.
+description: "当功能需求、工单、产品需求片段或初步想法比较模糊时使用。将其整理为结构化功能规格说明、技术实施计划和有序任务拆分，并明确标注未经确认的假设及其影响，帮助 AI 编程代理按计划实施，减少遗漏和自行猜测。"
 version: 1.0.0
 author: JPeetz (based on spec-writer by dannwaneri)
 license: MIT
