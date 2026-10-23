@@ -86,6 +86,6 @@ print(f"SKILL.md lines: {len(lines)}")
 print(f"Description characters: {len(description)}")
 PY
 
-make -C "$ROOT/templates" -n check >/dev/null
+make -C "$ROOT/templates" -f Makefile.prototype check >/dev/null
 
 echo "frontend-ui-prototype is valid."
