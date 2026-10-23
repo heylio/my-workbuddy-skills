@@ -71,39 +71,32 @@ async function main() {
   }
 
   const configs: AuthConfig[] = [];
+  const supportedRoles = new Set(['admin', 'customer', 'all']);
+  if (!supportedRoles.has(role)) {
+    console.error(`❌ Unsupported role "${role}". Use --role=admin, --role=customer, or --role=all.`);
+    process.exit(1);
+  }
 
-  switch (role) {
-    case 'all':
-    case 'admin':
-      configs.push({
-        role: 'admin',
-        email,
-        password,
-        loginUrl: `${baseUrl}/login`,
-        successUrl: 'dashboard',
-        outputPath: `${outputDir}/admin.json`,
-      });
-      break;
-    case 'all':
-    case 'customer':
-      configs.push({
-        role: 'customer',
-        email: process.env.TEST_CUSTOMER_EMAIL || email,
-        password: process.env.TEST_CUSTOMER_PASSWORD || password,
-        loginUrl: `${baseUrl}/login`,
-        successUrl: 'dashboard',
-        outputPath: `${outputDir}/customer.json`,
-      });
-      break;
-    default:
-      configs.push({
-        role,
-        email,
-        password,
-        loginUrl: `${baseUrl}/login`,
-        successUrl: 'dashboard',
-        outputPath: `${outputDir}/${role}.json`,
-      });
+  if (role === 'admin' || role === 'all') {
+    configs.push({
+      role: 'admin',
+      email,
+      password,
+      loginUrl: `${baseUrl}/login`,
+      successUrl: 'dashboard',
+      outputPath: `${outputDir}/admin.json`,
+    });
+  }
+
+  if (role === 'customer' || role === 'all') {
+    configs.push({
+      role: 'customer',
+      email: process.env.TEST_CUSTOMER_EMAIL || email,
+      password: process.env.TEST_CUSTOMER_PASSWORD || password,
+      loginUrl: `${baseUrl}/login`,
+      successUrl: 'dashboard',
+      outputPath: `${outputDir}/customer.json`,
+    });
   }
 
   for (const config of configs) {
