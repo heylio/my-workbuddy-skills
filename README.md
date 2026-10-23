@@ -16,6 +16,10 @@
 | anti-over-engineering | [SKILL.md](skills/anti-over-engineering/SKILL.md) | 避免过度设计 | https://github.com/JPeetz/agent-skills/tree/main/skills/development/anti-over-engineering |
 | safe-refactor | [SKILL.md](skills/safe-refactor/SKILL.md) | 安全重构 | https://github.com/JPeetz/agent-skills/tree/main/skills/development/safe-refactor |
 
+## 中文说明
+
+已将上述 9 个 Skill 的 `SKILL.md` 元数据中的 `description` 改为中文，便于 WorkBuddy 识别和理解各 Skill 的用途。为尽量保留上游 Skill 的原始工作流程与技术细节，正文操作指令目前仍以英文为主；这不影响中文描述字段的展示与检索。
+
 ## 同步说明
 
 目前已同步上述 9 个 Skill 的主说明文件（`SKILL.md`）。部分上游 Skill 可能还引用 `references/`、`scripts/`、`templates/` 等配套文件；这些依赖尚未全部同步，使用前请查看对应上游目录并按需补齐。请遵循各上游项目的许可证和署名要求。
