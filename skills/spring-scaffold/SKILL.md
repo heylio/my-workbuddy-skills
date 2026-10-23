@@ -1,6 +1,6 @@
 ---
 name: spring-scaffold
-description: "Scaffold a new Spring Boot 4 Maven project — feature-sliced packages, ProblemDetail error handling, Testcontainers, Dockerfile, GitHub Actions CI, AGENTS.md, and README. Opinionated: Lombok, PostgreSQL, and OpenTelemetry by default. Use when asked to create, scaffold, or bootstrap a new Spring Boot project. Not for existing projects."
+description: "仅在需要新建 Spring Boot 4 项目时使用。可生成采用 Maven 的项目骨架，包括按功能划分的包结构、ProblemDetail 错误处理、Testcontainers 测试、Dockerfile、GitHub Actions CI、AGENTS.md 和 README；默认采用 Lombok、PostgreSQL 和 OpenTelemetry。不用于已有项目的改造或补功能。"
 ---
 
 # Spring Boot Scaffold Skill
