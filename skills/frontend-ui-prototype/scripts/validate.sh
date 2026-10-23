@@ -15,7 +15,6 @@ grep -q '^name: frontend-ui-prototype$' "$SKILL" || fail "name must be frontend-
 grep -q '^description:' "$SKILL" || fail "description is missing"
 
 for path in \
-  "Makefile" \
   "README.md" \
   "agents/openai.yaml" \
   "references/intake.md" \
@@ -87,6 +86,6 @@ print(f"SKILL.md lines: {len(lines)}")
 print(f"Description characters: {len(description)}")
 PY
 
-make -C "$ROOT" -n validate >/dev/null
+make -C "$ROOT/templates" -n check >/dev/null
 
 echo "frontend-ui-prototype is valid."
