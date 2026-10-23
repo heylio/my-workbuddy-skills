@@ -27,7 +27,7 @@ sync_skill() {
   # other support directory the upstream skill ships.
   while IFS= read -r -d '' dir; do
     cp -a "$dir" "$target/"
-  done < <(find "$source" -mindepth 1 -maxdepth 1 -type d -print0)
+  done < <(find "$source" -mindepth 1 -maxdepth 1 -type d ! -name .git -print0)
   # Preserve useful upstream license/changelog/provenance files where present.
   for file in LICENSE LICENSE.md LICENSE.txt README.md README_zh.md CHANGELOG.md CONTRIBUTING.md metadata.json; do
     if [[ -f "$source/$file" ]]; then cp -f "$source/$file" "$target/$file"; fi
