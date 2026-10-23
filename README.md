@@ -20,7 +20,7 @@
 ## 花店管理系统项目规范
 
 - [花店管理系统 Skills 调用规范](docs/花店管理系统-Skill调用规范.md)：定义需求、原型、数据/API 设计、项目初始化、前后端开发、测试、重构、维护各阶段的 Skill 白名单和完成门槛。
-- `java-development` 是根据候选上游项目的工作原则整理的本仓库适配版，当前为自包含单文件，不依赖上游的 `core/`、`spring-boot/`、`testing/` 等目录；它并非上游 34 条规则的完整镜像。
+- `java-development` 的 `SKILL.md` 是花店项目适配版；配套的 `core/`、`spring-boot/`、`testing/`、`code-review/`、`jvm/`、`build-tools/`、`assets/`、`examples/` 等规则目录从上游同步。适配版主文件与上游规则目录配套使用。
 - `spring-scaffold` 继续负责项目初始骨架；`java-development` 负责初始化后的持续后端开发，二者互补。
 
 ## 同步说明
