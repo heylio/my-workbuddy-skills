@@ -1,10 +1,6 @@
 ---
 name: database-schema-designer
-description: >-
-  Design production-ready database schemas for SQL and NoSQL databases.
-  Covers normalization, indexing strategy, migration management with
-  rollback safety, query optimization, and multi-tenant patterns.
-  Supports PostgreSQL, MySQL, SQLite, MongoDB, and Vitess.
+description: "用于设计或评审可用于生产环境的 SQL/NoSQL 数据库结构，涵盖数据规范化、索引策略、迁移与安全回滚、查询优化及多租户架构。支持 PostgreSQL、MySQL、SQLite、MongoDB 和 Vitess；涉及破坏性变更时，应先备份、准备回滚方案，并在测试环境验证。"
 version: 1.0.0
 platforms: [openclaw, claude, codex, cursor, gemini, copilot, opencode, windsurf]
 author:
