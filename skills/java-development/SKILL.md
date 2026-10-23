@@ -72,3 +72,19 @@ description: 用于花店管理系统的 Java 与 Spring Boot 持续开发、接
 4. **风险与后续**：未验证事项、迁移/兼容风险及下一步。
 
 不得虚构运行结果、数据库选择、业务规则或已执行的测试。
+
+
+## 上游配套规则按需读取
+
+本 Skill 的主文件是花店项目适配入口。完成任务前，先按任务类型读取下列已同步的上游规则目录；只读取相关文件，不要一次性加载所有规则。若某个文件在本地尚不存在，先运行仓库的 `scripts/sync-upstream-skill-support.sh`，不要臆造文件内容。
+
+- 通用 Java、API、异常和版本升级：`core/`，重点查看 `java-general-development.md`、`java-api-design.md`、`java-exception-handling.md`、`java-version-modernization.md`。
+- Maven/Gradle 依赖与构建：`build-tools/`，按实际构建工具读取对应规则。
+- Spring Boot 分层、依赖注入、配置、异常、Actuator、REST 客户端或版本迁移：`spring-boot/` 中对应的 `sb-*.md`。
+- Java 代码审查、安全、并发、空值和资源释放：`code-review/` 中对应的 `cr-*.md`。
+- 单元、切片、集成、Mockito、Testcontainers：`testing/` 中对应的 `test-*.md`。
+- JVM OOM、高 CPU、线程转储、GC：`jvm/` 中对应的排障规则。
+- 可选的 Maven、Controller/Service/Test 和配置示例：`assets/`。这些仅作参考，不得覆盖项目现有版本、依赖或架构决定。
+- 更多调用示例：`examples/`。
+
+如上游规则与本文件的花店业务约束或用户已确认的技术决策冲突，以项目约束为准，并说明冲突；不得因为存在上游模板就擅自引入 MyBatis-Plus、特定 Spring Boot 版本或特定数据库。
