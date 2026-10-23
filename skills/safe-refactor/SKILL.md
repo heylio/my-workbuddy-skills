@@ -1,6 +1,6 @@
 ---
 name: safe-refactor
-description: Use this skill when refactoring code — change structure without changing behavior, in small verified steps with tests green before and after each step.
+description: "用于安全重构代码：调整代码结构、命名或文件组织，但不改变外部可观察行为。要求重构前后运行测试，将改动拆成小步骤，每一步验证通过后再继续，降低回归风险；不适用于借重构之名同时添加新功能或修复无关问题。"
 author: adityaarakeri/senior-agent-skills + JPeetz
 version: 1.0.0
 tags: [refactoring, reliability, testing, code-quality]
