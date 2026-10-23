@@ -1,6 +1,6 @@
 ---
 name: anti-over-engineering
-description: Use when AI agents over-engineer code beyond user requests.
+description: "当 AI 编程代理有过度设计、擅自扩大改动范围、添加不必要抽象或依赖、创建多余文件等倾向时使用。强调只做用户要求的改动，优先选择最简单可行的方案，复用现有实现，并控制代码变更范围。"
 version: 1.0.0
 license: MIT
 author: uucz (original author), Skill Foundry (packaged edition)
