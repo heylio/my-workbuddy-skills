@@ -264,11 +264,7 @@ Testcontainers 2.x shapes: `PostgreSQLContainer` comes from `org.testcontainers.
 `org.testcontainers.containers.*` classes are deprecated shims), the container classes are no longer
 self-generic — no `<?>` — and they take a `DockerImageName`, never a raw `String`.
 
-This is the whole testing surface the scaffold generates: one base class, one container configuration. Everything
-past it — Redis/Kafka/RabbitMQ/Floci (AWS) containers, unit vs integration routing, the Boot 4 test
-API (`@MockitoBean`, `MockMvcTester`, `RestTestClient`), and writing the tests themselves — belongs
-to the **`spring-testing`** skill. Point the user there in the Step 10 report rather than growing
-this step.
+This is the minimum testing surface the scaffold generates: one base class and one container configuration. Do not assume a separate testing skill is installed. Tell the user to add domain-specific unit and integration tests, add Redis/Kafka/RabbitMQ/LocalStack containers only when the project requires them, and verify the APIs supported by the resolved Spring Boot version before using test helpers such as `@MockitoBean`, `MockMvcTester`, or `RestTestClient`.
 
 ---
 
