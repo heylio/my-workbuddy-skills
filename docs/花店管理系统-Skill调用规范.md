@@ -23,7 +23,7 @@
 | 2. 数据与接口设计 | 形成数据模型、约束、API 契约 | `database-schema-designer`、`spec-writer`、`anti-over-engineering` | 数据库未定时只产出逻辑模型/候选方案，不产出假定数据库为最终定案的配置 |
 | 3. 技术选型与初始化 | 确定 Java/Spring Boot、Vue、构建工具、数据库后初始化仓库 | `spring-scaffold`、`java-development`、`database-schema-designer` | 初始化前必须记录技术决策；不允许未经确认引入微服务、消息队列、缓存等基础设施 |
 | 4. 后端业务开发 | 实现 API、服务逻辑、事务、持久层、权限与校验 | `java-development`、`spec-writer`、`database-schema-designer`（仅涉及 schema/迁移时） | 不调用前端视觉 Skill；不改变已确认 API/数据模型而不更新规格 |
-| 5. 前端业务开发 | 实现 Vue 页面、表单、列表、交互和接口对接 | `frontend-design`、`frontend-ui-prototype`（仅原型未完成时）、`frontend-design-review` | 不直接修改后端业务规则或数据库模型；接口不匹配时回到接口契约修订 |
+| 5. 前端业务开发 | 实现 Vue 页面、表单、列表、交互和接口对接 | `frontend-design`、`frontend-ui-prototype`（仅原型未完成时）、`frontend-design-review`、`mobile-responsive`（涉及响应式/移动端适配时） | 不直接修改后端业务规则或数据库模型；接口不匹配时回到接口契约修订 |
 | 6. 测试与验收 | 验证单元、集成和关键用户流程 | `playwright-e2e-testing`、`java-development`、`frontend-design-review` | 不以 E2E 测试替代后端单元/集成测试；修复代码时切换到对应开发 Skill |
 | 7. 代码审查与重构 | 控制风险、消除坏味道、保持简单 | `safe-refactor`、`anti-over-engineering`、`java-development`、`frontend-design-review` | 未经要求不做大范围重构；重构前确认测试基线，重构后重跑受影响测试 |
 | 8. 发布与维护 | 配置、故障定位、修复与回归 | `java-development`、`playwright-e2e-testing`（影响关键流程时）、`safe-refactor`（仅重构时） | 不在未授权情况下执行破坏性迁移、删除数据、生产发布或密钥轮换 |
@@ -34,13 +34,15 @@
 - **表结构变更**：必须调用 `database-schema-designer`，更新迁移方案和相关测试，再进入后端实现。
 - **新增后端业务**：默认 `java-development`；涉及需求澄清时可加 `spec-writer`；涉及数据模型时可加 `database-schema-designer`。
 - **新增页面**：默认 `frontend-design`；流程未明确时先用 `frontend-ui-prototype`。
+- **移动端适配**：对既有桌面端 Web 页面进行手机/平板适配，或修复横向溢出、触摸区域、窄屏布局问题时，调用 `mobile-responsive`；优先沿用项目既有设计 Token、组件和断点，不引入第二套样式体系。
 - **修改既有代码**：若只是小型业务修复，使用对应开发 Skill；只有目标确实是改善结构时才调用 `safe-refactor`。
 - **测试失败**：先定位失败属于业务、接口、数据、UI 还是测试环境，再调用对应 Skill；不得无差别加载所有 Skills。
 - **复杂度争议**：仅在存在多个可行方案或出现过度抽象风险时调用 `anti-over-engineering`。
 
 ## 4. 当前 Skill 清单
 
-### 已有 Skills（9 个）
+### 已有 Skills（11 个）
+- `mobile-responsive`
 - `frontend-ui-prototype`
 - `frontend-design`
 - `frontend-design-review`
@@ -51,7 +53,7 @@
 - `anti-over-engineering`
 - `safe-refactor`
 
-### 新增 Skill（第 10 个）
+### 新增 Skill（第 11 个）
 - `java-development`：Spring Boot 后端持续开发、测试与维护。它是初始化 Skill 的补充，不直接替代 `spring-scaffold`。
 
 ## 5. 阶段完成的最低门槛
