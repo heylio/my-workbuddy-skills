@@ -6,6 +6,7 @@
 
 | Skill | 本仓库路径 | 用途 | 上游来源 |
 |---|---|---|---|
+| mobile-responsive | [SKILL.md](skills/mobile-responsive/SKILL.md) | Web 页面移动端响应式适配、溢出检查与设计一致性 | https://github.com/AsadSumbul/mobile-responsive |
 | frontend-ui-prototype | [SKILL.md](skills/frontend-ui-prototype/SKILL.md) | 快速构建前端 UI 原型 | https://github.com/0furkancolak/frontend-ui-prototype |
 | frontend-design | [SKILL.md](skills/frontend-design/SKILL.md) | 前端界面设计与实现 | https://github.com/anthropics/skills/tree/main/skills/frontend-design |
 | frontend-design-review | [SKILL.md](skills/frontend-design-review/SKILL.md) | 前端设计评审 | https://github.com/microsoft/skills/tree/main/.github/skills/frontend-design-review |
@@ -26,3 +27,6 @@
 ## 同步说明
 
 上游 Skills 的 `references/`、`scripts/`、`templates/`、`assets/` 等配套文件必须与对应 `SKILL.md` 一并同步；不能只复制主说明文件。可在 GitHub Actions 的 **Sync upstream skill support files** 工作流中点击 **Run workflow** 执行同步；也可在本地运行 `bash scripts/sync-upstream-skill-support.sh`。同步脚本只复制配套目录和许可/变更记录文件，保留本仓库适配后的 `SKILL.md`。`java-development` 为本仓库自包含适配版，不从上游覆盖。请遵循各上游项目的许可证和署名要求。
+
+
+`mobile-responsive` 按上游目录结构引入了 SKILL.md、references、scripts、HTML 演示页、README 和 MIT LICENSE。上游的 PNG 演示截图未复制（当前 GitHub 文件连接仅支持 UTF-8 文本）；这不影响 Skill 工作流程和溢出检查脚本。
